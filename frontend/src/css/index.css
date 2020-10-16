@@ -1,0 +1,24 @@
+/* The CSS file for the other sections are imported into this file */
+
+@import './footer.css';
+@import './header.css';
+@import './main.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  background: #000;
+  overflow: hidden;
+  font-family: 'Circular Std Book';
+}
+
+.wrapper {
+  height: 95vh;
+  margin: 0 auto -30px;
+}
