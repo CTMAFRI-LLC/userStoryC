@@ -1,7 +1,33 @@
-import React from 'react';
-import {Link} from 'react-router-dom'
+import React, { Component, Fragment } from 'react'
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { logout } from '../actions/auth';
 
-export default function MainHeader() {
+
+class MainHeader extends Component {
+  static propTypes = {
+    auth: PropTypes.object.isRequired,
+    logout: PropTypes.func.isRequired,
+  };
+  render(){
+    const { isAuthenticated, user } = this.props.auth;
+
+    const authLinks = (
+      <Fragment>
+          <span>{user ? `Welcome ${user.username}` : ''}</span>
+          <button onClick={this.props.logout} className="sign__out">
+            Sign out
+          </button>
+          </Fragment>
+    );
+
+    const guestLinks = (
+      <button class="sign__out">
+      <a href="#">Sign in</a>
+    </button>
+    );
+
     return (
       <>
         {/* JSX for header component */}
@@ -9,10 +35,15 @@ export default function MainHeader() {
           <Link to="/" class="logo">
             LO <br /> GO
           </Link>
-          <button class="sign__out">
-            <a href="#">Sign Out</a>
-          </button>
+          {isAuthenticated ? authLinks : guestLinks}
         </div>
       </>
     );
 }
+
+}
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps, { logout })(MainHeader);

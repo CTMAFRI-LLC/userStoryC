@@ -39,32 +39,49 @@ class Login extends Component{
               alt=""
             />
           </Link>
-          <h2 class="heading__2a">Subscription</h2>
-          <h3 class="heading__3a">Step 1 of 3</h3>
-          <h4 class="big__show">
-            <div class="horizontal">$9.99 </div>
-            <div class="vertical">
-              <div>per</div>
-              <div>month</div>
+          <form onSubmit={this.onSubmit}>
+            <div>
+                <input 
+                type="text" 
+                class="text-input"
+                placeholder="Username"
+                name="username"
+                onChange={this.onChange} 
+                value={username} required
+                />
             </div>
-          </h4>
-          <div class="main__info">
-            <p class="info_1">
-              <span>30 days access to the platform</span>
-            </p>
-            <p class="info_2">
-              <span>Access to all tourist sites</span>
-            </p>
-            <p class="info_3">
-              <span>Money back guarantee</span>
-            </p>
-          </div>
-          {/* Making the Continue btn a link to the next page */}
-          <Link class="btn__large" to="/step2">
-            Continue
-          </Link>
+            <div>
+                <input 
+                type="password"
+                class="text-input"
+                placeholder="Password" 
+                name="password"   
+                onChange={this.onChange} 
+                value={password} 
+                required />
+            </div>
+            <div className="checkbox-container my-2">
+                <label className="checkbox-label">
+                    <input type="checkbox" />
+                    <div className="input-title">Keep me signed in</div>
+                    <span className="checkbox-custom rectangular" />
+                </label>
+            </div>
+            <div className="my-2">
+                <button type="submit" className="btn sa-form-btn">sign in</button>
+            </div>
+        </form>
+                      <div className="my-2 quest">
+                        <span className="sa-dash" />
+                        <span>Or sign in with</span>
+                        <span className="sa-dash" />
+                      </div>
+                      <div className="my-2 d-flex justify-content-between">
+                        <Link href="#" className="btn sa-df-btn">Google</Link>
+                        <Link href="#" className="btn sa-df-btn">Facebook</Link>
+                      </div>
+                    </div>
         </div>
-      </div>
   );
 }
 }
@@ -73,4 +90,4 @@ const mapStateToProps = (state) => ({
     isAuthenticated: state.auth.isAuthenticated,
   });
   
-  export default connect(mapStateToProps, { login })(Login)
+export default connect(mapStateToProps, { login })(Login)

@@ -1,3 +1,32 @@
+
+/* Main Body */
+@font-face {
+    font-family: StdBlack;
+    src: url("../fonts/CircularStdBlack.ttf");
+  }
+  
+  @font-face {
+    font-family: StdBold;
+    src: url("../fonts/CircularStdBold.ttf");
+  }
+  
+  @font-face {
+    font-family: StdBook;
+    src: url("../fonts/CircularStdBook.ttf");
+  }
+  
+  @font-face {
+    font-family: StdMedium;
+    src: url("../fonts/CircularStdMedium.ttf");
+  }
+
+  *{
+      margin: 0;
+      padding: 0;
+      
+    font-family: StdBook;
+  }
+  
 .container {
     display: flex;
     justify-content: center;
@@ -188,3 +217,163 @@ p span {
     justify-content: space-between;
     align-items: center;
 }
+
+
+
+.input-title {
+    clear: both;
+    font-size: 14px;
+    color: #f2f3f7;
+    font-weight: 300;
+    font-family: StdBook;
+    margin-left: 26px;
+  }
+  
+  .checkbox-label {
+    display: inline;
+    position: relative;
+    margin: auto;
+    cursor: pointer;
+    font-size: 22px;
+    line-height: 24px;
+    height: 24px;
+    width: 24px;
+    clear: both;
+  }
+  
+  .checkbox-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .checkbox-label .checkbox-custom {
+    position: absolute;
+    top: 0;
+    height: 20px;
+    width: 20px;
+    background-color: transparent;
+    border-radius: 5px;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    border: 2px solid #66ffcc;
+  }
+  
+  .checkbox-label input:checked~.checkbox-custom {
+    background-color: #66ffcc;
+    border-radius: 5px;
+    -webkit-transform: rotate(0deg) scale(1);
+    -ms-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+    border: 2px solid #66ffcc;
+  }
+  
+  .checkbox-label .checkbox-custom::after {
+    position: absolute;
+    content: "";
+    left: 12px;
+    top: 12px;
+    height: 0px;
+    width: 0px;
+    border-radius: 5px;
+    border: solid #009bff;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(0deg) scale(0);
+    -ms-transform: rotate(0deg) scale(0);
+    transform: rotate(0deg) scale(0);
+    opacity: 1;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+  }
+  
+  .checkbox-label input:checked~.checkbox-custom::after {
+    -webkit-transform: rotate(45deg) scale(1);
+    -ms-transform: rotate(45deg) scale(1);
+    transform: rotate(45deg) scale(1);
+    opacity: 1;
+    left: 4px;
+    top: 0px;
+    width: 6px;
+    height: 12px;
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    background-color: transparent;
+    border-radius: 0;
+  }
+  
+  /* For Ripple Effect */
+  .checkbox-label .checkbox-custom::before {
+    position: absolute;
+    content: "";
+    left: 10px;
+    top: 10px;
+    width: 0px;
+    height: 0px;
+    border-radius: 5px;
+    border: 2px solid #ffffff;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+  }
+  
+  .checkbox-label input:checked~.checkbox-custom::before {
+    left: -3px;
+    top: -3px;
+    width: 24px;
+    height: 24px;
+    border-radius: 5px;
+    -webkit-transform: scale(3);
+    -ms-transform: scale(3);
+    transform: scale(3);
+    opacity: 0;
+    z-index: 999;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+  }
+
+  
+  .sa-form-btn {
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 30px;
+    font-size: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #212121;
+    font-family: StdBlack;
+    background-color: #34ffc8;
+    font-weight: 600;
+    outline: none;
+  }
+  
+
+  .text-input {
+    display: block;
+    width: 100%;
+    background-color: #2f2f2f;
+    border: none;
+    outline: none;
+    font-family: StdBook;
+    color: #eeeeee;
+    height: 40px;
+    padding: 0.375rem 0.75rem;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    background-clip: padding-box;
+    border-radius: 0.4rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    margin-bottom: 10px;
+  }
