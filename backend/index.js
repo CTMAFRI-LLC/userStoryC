@@ -13,12 +13,12 @@ app.use(cors())
 
 
 // Get Route
-app.get('/', (req,res) => {
+app.get('https://ctmafri.herokuapp.com/api/subscription/monthly-subscription-list/ ', (req,res) => {
     res.send('Hello There😀')
 })
 
 // Post Route for payment
-app.post('/payment', (req,res) => {
+app.post('https://ctmafri.herokuapp.com/api/subscription/create-subscription/', (req,res) => {
 
     // Getting the data from the frontend and destructuring it into product and token
     const {product, token} = req.body;
