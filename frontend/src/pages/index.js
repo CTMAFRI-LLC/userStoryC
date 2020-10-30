@@ -1,19 +1,19 @@
 
 import React from "react";
-import {Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function MainSection() {
   return (
     // JSX of Main container in the mainsection page
       <div class="main__content">
         <div class="container">
-          <a href="#">
+          <Link to="#">
             <img
               class="close__icon"
               src="assets/img/SVG/CircleButton.svg"
               alt=""
             />
-          </a>
+          </Link>
           <h2 class="heading__2a">Subscription</h2>
           <h3 class="heading__3a">Step 1 of 3</h3>
           <h4 class="big__show">
